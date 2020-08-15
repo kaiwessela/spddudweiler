@@ -1,7 +1,8 @@
 #! /bin/bash
 
 # clear build folder
-rm -rf build/.
+rm -rf build
+mkdir build
 
 # build blog
 cd blog
