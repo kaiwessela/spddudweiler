@@ -2,8 +2,8 @@
 use \Blog\Config\Config;
 use \Blog\Frontend\Web\Modules\TimeFormat;
 ?>
-<article class="preview">
-	<a href="<?= Config::SERVER_URL ?>/posts/<?= $post->longid ?>">
+<article class="post preview">
+	<a href="<?= Config::SERVER_URL ?>/aktuelles/<?= $post->longid ?>">
 
 <?php
 if($post->show_picture){

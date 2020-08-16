@@ -29,5 +29,11 @@ class Routes {
 		'template' => 'default',
 		'controller' => 'Controller'
 	];
+
+	const TITLES = [
+		'ueber-uns' => 'Über uns',
+		'vor-ort' => 'Wir vor Ort',
+		'mitmachen' => 'Mitmachen'
+	];
 }
 ?>

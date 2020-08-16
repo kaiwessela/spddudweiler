@@ -164,15 +164,15 @@ main {
 
 body > *,
 main > section,
-main > article {
+main > article.post {
 	display: grid;
 	grid-template-columns: inherit;
 	grid-column: grid-start / grid-end;
 }
 
-main > section.highlighted,
+main > *.highlighted,
 main > section > header.highlighted,
-main > article > header {
+main > article.post > header {
 	display: grid;
 	grid-template-columns: inherit;
 	grid-column: grid-start / grid-end;
@@ -181,7 +181,7 @@ main > article > header {
 	background: var(--default-gradient-blend);
 }
 
-main > section.highlighted.image,
+main > *.highlighted.image,
 main > section > header.highlighted.image {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -198,6 +198,10 @@ div {
 	grid-column: content-start / content-end;
 	font-family: var(--font-primary);
 	margin: 0.5rem 0;
+}
+
+section p {
+	line-height: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -404,21 +408,21 @@ body > footer ul.link-list a:focus {
 	background: var(--default-gradient) left bottom / 100% 0.15em no-repeat;
 }
 
-article:not(.preview) > p {
+article.post:not(.preview) > p {
 	grid-column: text-start / text-end;
 	font-size: 1.1rem;
 	line-height: 1.5em;
 	hyphens: auto;
 }
 
-article:not(.preview) > p:first-of-type::first-letter {
+article.post:not(.preview) > p:first-of-type::first-letter {
 	font-family: var(--font-secondary);
 	font-size: 5em;
 	float: left;
 	margin: 0.1em 0.05em 0 -0.05em;
 }
 
-article:not(.preview) > p:last-of-type::after {
+article.post:not(.preview) > p:last-of-type::after {
 	content: '';
 	display: inline-block;
 	width: 3em;
@@ -430,31 +434,31 @@ article:not(.preview) > p:last-of-type::after {
 	background-size: contain;
 }
 
-article:not(.preview) > header {
+article.post:not(.preview) > header {
 	padding-bottom: 0;
 }
 
-article:not(.preview) > header .overline {
+article.post:not(.preview) > header .overline {
 	grid-column: large-start / large-end;
 }
 
-article:not(.preview) > header .subline {
+article.post:not(.preview) > header .subline {
 	grid-column: large-start / large-end;
 }
 
-article:not(.preview) > header .author-and-date {
+article.post:not(.preview) > header .author-and-date {
 	grid-column: text-start / text-end;
 	font-size: 1rem;
 	margin: 2rem 0 1rem;
 	color: var(--color-text-dark);
 }
 
-article:not(.preview) img {
+article.post:not(.preview) img {
 	margin-bottom: 2rem;
 	border-radius: 0.25rem;
 }
 
-article .overline {
+article.post .overline {
 	font-family: var(--font-secondary);
 	font-size: 1.6rem;
 	font-weight: 600;
@@ -462,16 +466,16 @@ article .overline {
 	color: #e3000f;
 }
 
-article h1 {
+article.post h1 {
 	display: block;
 	margin: 0.1em 0;
 }
 
-article h1 span {
+article.post h1 span {
 	background: var(--default-gradient) center 1.2em / 100% 0.1em no-repeat;
 }
 
-article .subline {
+article.post .subline {
 	font-family: var(--font-secondary);
 	font-style: italic;
 	font-size: 2rem;
@@ -479,62 +483,62 @@ article .subline {
 	margin: 0.5em 0;
 }
 
-article .author-and-date {
+article.post .author-and-date {
 	font-family: var(--font-secondary);
 }
 
-article.preview {
+article.post.preview {
 	grid-column: content-start / content-end;
 	margin: 1rem -0.75rem;
 	box-shadow: var(--default-shadow);
 	border-radius: 0.5rem;
 }
 
-article.preview:first-of-type {
+article.post.preview:first-of-type {
 	margin-top: 2rem;
 }
 
-article.preview:last-of-type {
+article.post.preview:last-of-type {
 	margin-bottom: 2rem;
 }
 
-article.preview a {
+article.post.preview a {
 	display: flow-root;
 	color: inherit;
 	text-decoration: none;
 	padding: 0.75rem;
 }
 
-article.preview .overline {
+article.post.preview .overline {
 	font-size: 1.1rem;
 	margin: 0;
 	padding: 0;
 	background: none;
 }
 
-article.preview h3 {
+article.post.preview h3 {
 	font-weight: 700;
 	font-size: 2rem;
 	margin: 0.1em 0;
 }
 
-article.preview h3 span {
+article.post.preview h3 span {
 	display: inline;
 	background: var(--default-gradient) left 1.2em / 3em 0.1em no-repeat;
-	transition: background 0.25s ease;
+	transition: background 0.5s ease;
 }
 
-article.preview a:hover h3 span,
-article.preview a:focus h3 span {
+article.post.preview a:hover h3 span,
+article.post.preview a:focus h3 span {
 	background-size: 100% 0.1em;
 }
 
-article.preview .subline {
+article.post.preview .subline {
 	font-size: 1.3rem;
 	color: var(--color-text-dark);
 }
 
-article.preview img {
+article.post.preview img {
 	width: 15rem;
 	height: 10rem;
 	float: right;
@@ -554,18 +558,17 @@ article.preview img {
 	display: block;
 	margin: 0.25rem;
 	padding: 0.5rem;
-	width: 1.5rem;
+	width: 1.4rem;
+	height: 1.4rem;
 	text-align: center;
-	background: var(--default-gradient-blend) center center / 100% 100% no-repeat;
-	border-image: var(--default-gradient) 1;
-	border-image-width: 2px;
-	transition-duration: 0.5s;
+	background: transparent;
+	border: 0.1rem solid #e3000f;
+	transition-duration: 0.25s;
 }
 
 .pagination a:hover,
 .pagination a:focus {
-	background: var(--default-gradient-blend) center center / 100% 100% no-repeat;
-	border-image-width: 4px;
+	background: #e3000f22;
 }
 
 .pagination .current {
@@ -586,6 +589,106 @@ article.preview img {
 	opacity: 0.4;
 	cursor: not-allowed;
 	pointer-events: none;
+}
+
+.people-grid {
+	display: grid;
+	grid-column: large-start / large-end;
+	grid-template-columns: repeat(auto-fill, minmax(11rem, 13rem));
+	grid-template-rows: repeat(auto-fill, 18rem);
+	gap: 1.5rem 1.5rem;
+	justify-content: center;
+}
+
+.people-grid article {
+	position: relative;
+	perspective: 100rem;
+}
+
+.people-grid article.static {
+	transition-duration: 5s;
+}
+
+.people-grid article > div {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	box-shadow: var(--default-shadow);
+	border-radius: 0.2rem;
+}
+
+.people-grid article img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 0.2rem;
+}
+
+.people-grid article .name {
+	position: absolute;
+	display: block;
+	bottom: 2.5rem;
+	left: 0.5rem;
+	right: 0.5rem;
+	margin: 0;
+	font-family: var(--font-secondary);
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: #ffffff;
+	text-shadow: 0 0 1rem #000000;
+	transition-duration: inherit;
+}
+
+.people-grid article .line {
+	position: absolute;
+	display: block;
+	height: 0.2rem;
+	width: 1rem;
+	bottom: 2rem;
+	left: 0.5rem;
+	margin: 0;
+	background-color: #e3000f;
+	transition: width 0.25s;
+}
+
+.people-grid article:hover .line {
+	width: 5rem;
+}
+
+.people-grid article .function {
+	position: absolute;
+	display: block;
+	bottom: 0.25rem;
+	left: 0.5rem;
+	right: 0.5rem;
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #000000;
+	text-shadow: 0 0 1rem #00000088;
+	transition-duration: inherit;
+}
+
+.people-grid article:focus,
+.people-grid article.static:hover {
+	transform: rotateY(-15deg);
+}
+
+.people-grid article:focus .name,
+.people-grid article.static:hover .name {
+	transform: translateX(-1rem);
+}
+
+.people-grid article:focus .line,
+.people-grid article.static:hover .line {
+	transform: translateX(-0.75rem);
+}
+
+.people-grid article:focus .function,
+.people-grid article.static:hover.name {
+	transform: translateX(-0.5rem);
 }
 
 @media (max-width: 86rem) {

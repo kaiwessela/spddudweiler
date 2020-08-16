@@ -16,7 +16,7 @@ use \Blog\Frontend\Web\Modules\TimeFormat;
 	<body>
 		<?php include COMPONENT_PATH . 'header.comp.php'; ?>
 		<main>
-			<article>
+			<article class="post">
 				<header>
 
 					<?php if($post->overline){ ?>
