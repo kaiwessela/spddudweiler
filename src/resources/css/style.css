@@ -602,6 +602,7 @@ article.post.preview img {
 
 .people-grid article {
 	position: relative;
+	height: 18rem;
 	perspective: 100rem;
 }
 
@@ -637,7 +638,7 @@ article.post.preview img {
 	font-size: 1.4rem;
 	font-weight: 600;
 	color: #ffffff;
-	text-shadow: 0 0 1rem #000000;
+	text-shadow: 0 0 0.5rem #000000;
 	transition-duration: inherit;
 }
 
@@ -666,8 +667,8 @@ article.post.preview img {
 	margin: 0;
 	font-size: 1rem;
 	font-weight: 600;
-	color: #000000;
-	text-shadow: 0 0 1rem #00000088;
+	color: #ffffff;
+	text-shadow: 0 0 0.25rem #00000088;
 	transition-duration: inherit;
 }
 
