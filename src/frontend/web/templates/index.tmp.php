@@ -16,8 +16,8 @@ use \Blog\Frontend\Web\SiteConfig;
 			</section>
 			<section>
 				<h2>Aktuelles</h2>
-				<?php if($controller->show_posts){
-					foreach($controller->posts as $post){
+				<?php if($PostListController->posts){
+					foreach($PostListController->posts as $post){
 						include COMPONENT_PATH . 'preview-post.comp.php';
 					}
 				} else { ?>
