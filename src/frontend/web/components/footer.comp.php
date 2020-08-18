@@ -30,6 +30,7 @@ use \Blog\Frontend\Web\SiteConfig;
 				Robert-Koch-Straße 18<br>
 				66125 Saarbrücken
 			</p>
+			<br>
 			<ul class="link-list">
 				<li><a href="mailto:info@spd-dudweiler.de">E-Mail: info@spd-dudweiler.de</a></li>
 				<li><a href="tel:+496897764333">Telefon: 06897 / 764333</a></li>

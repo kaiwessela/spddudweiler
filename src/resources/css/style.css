@@ -149,8 +149,9 @@ html {
 
 body {
 	display: grid;
-	grid-template-columns: [grid-start] 1fr [sym-start] 10rem [large-start] 5rem [content-start] 3rem [text-start] 21.75rem [logo-start] 2.25rem
-		[center] 2.25rem [logo-end] 21.75rem [text-end] 3rem [content-end] 5rem [large-end] 10rem [sym-end] 1fr [grid-end];
+	grid-template-columns: [grid-start] 1fr [sym-start] 10rem [large-start] 5rem [content-start]
+		3rem [text-start] 21.75rem [logo-start] 2.25rem [center] 2.25rem [logo-end] 21.75rem
+		[text-end] 3rem [content-end] 5rem [large-end] 10rem [sym-end] 1fr [grid-end];
 	margin: 0;
 	padding: 0;
 	color: var(--color-text);
@@ -186,6 +187,8 @@ main > section > header.highlighted.image {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	color: #ffffff;
+	text-shadow: 0 0 4rem #000000, 0 0 4rem #000000;
 }
 
 main > section > *,
@@ -223,6 +226,27 @@ picture {
 picture > img {
 	width: 100%;
 	height: auto;
+}
+
+figure {
+	grid-column: content-start / content-end;
+	margin: 0;
+}
+
+figure * {
+	grid-column: unset;
+}
+
+figure figcaption {
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+figure figcaption small {
+	font-size: 1em;
+	font-weight: 400;
+	font-style: italic;
+	color: #666666;
 }
 
 p a,
@@ -453,8 +477,12 @@ article.post:not(.preview) > header .author-and-date {
 	color: var(--color-text-dark);
 }
 
-article.post:not(.preview) img {
+article.post:not(.preview) > img,
+article.post:not(.preview) > figure {
 	margin-bottom: 2rem;
+}
+
+article.post:not(.preview) img {
 	border-radius: 0.25rem;
 }
 
@@ -638,7 +666,7 @@ article.post.preview img {
 	font-size: 1.4rem;
 	font-weight: 600;
 	color: #ffffff;
-	text-shadow: 0 0 0.5rem #000000;
+	text-shadow: 0 0 2rem #000000, 0 0 2rem #000000;
 	transition-duration: inherit;
 }
 
@@ -668,7 +696,7 @@ article.post.preview img {
 	font-size: 1rem;
 	font-weight: 600;
 	color: #ffffff;
-	text-shadow: 0 0 0.25rem #00000088;
+	text-shadow: 0 0 1rem #000000, 0 0 2rem #000000;
 	transition-duration: inherit;
 }
 
@@ -694,20 +722,25 @@ article.post.preview img {
 
 @media (max-width: 86rem) {
 	body {
-		grid-template-columns: [grid-start] 1fr [sym-start] 5rem [large-start] 5rem [content-start] 3rem [text-start] 21.75rem [logo-start] 2.25rem
-			[center] 2.25rem [logo-end] 21.75rem [text-end] 3rem [content-end] 5rem [large-end] 5rem [sym-end] 1fr [grid-end];
+		grid-template-columns: [grid-start] 1fr [sym-start] 5rem [large-start] 5rem [content-start]
+			3rem [text-start] 21.75rem [logo-start] 2.25rem [center] 2.25rem [logo-end] 21.75rem
+			[text-end] 3rem [content-end] 5rem [large-end] 5rem [sym-end] 1fr [grid-end];
 	}
 }
 
 @media (max-width: 76rem) {
 	body {
-		grid-template-columns: [grid-start] 1fr [sym-start large-start] 6rem [content-start] 3rem [text-start] 15.75rem [logo-start] 2.25rem [center] 2.25rem [logo-end] 15.75rem [text-end] 3rem [content-end] 6rem [large-end sym-end] 1fr [grid-end];
+		grid-template-columns: [grid-start] 1fr [sym-start large-start] 6rem [content-start] 3rem
+			[text-start] 15.75rem [logo-start] 2.25rem [center] 2.25rem [logo-end] 15.75rem
+			[text-end] 3rem [content-end] 6rem [large-end sym-end] 1fr [grid-end];
 	}
 }
 
 @media (max-width: 58rem) {
 	body {
-		grid-template-columns: [grid-start] 1rem [sym-start large-start content-start text-start] 1fr [logo-start] 2.25rem [center] 2.25rem [logo-end] 1fr [text-end content-end large-end sym-end] 1rem [grid-end];
+		grid-template-columns: [grid-start] 1rem [sym-start large-start content-start text-start]
+			1fr [logo-start] 2.25rem [center] 2.25rem [logo-end] 1fr
+			[text-end content-end large-end sym-end] 1rem [grid-end];
 	}
 
 	h1,
