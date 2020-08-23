@@ -2,7 +2,7 @@
 namespace Blog\Config;
 
 class PaginationConfig {
-	const OBJECTS_PER_PAGE = 1;
+	const OBJECTS_PER_PAGE = 5;
 
 	const STRUCTURE = [
 		[

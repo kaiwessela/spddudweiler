@@ -11,7 +11,8 @@ use \Blog\Frontend\Web\SiteConfig;
 	<body>
 		<?php include COMPONENT_PATH . 'header.comp.php'; ?>
 		<main>
-			<section class="highlighted image" style="background-image: url('<?= Config::SERVER_URL . Config::DYNAMIC_IMAGE_PATH . SiteConfig::INDEX_IMAGE ?>');">
+			<!-- /*Config::SERVER_URL . Config::DYNAMIC_IMAGE_PATH . SiteConfig::INDEX_IMAGE*/ ?>-->
+			<section class="highlighted image" style="background-image: url('https://spd-dudweiler.de/resources/img.php?uid=8f7e5030');">
 				<h1>Willkommen bei der SPD Dudweiler</h1>
 			</section>
 			<section>
