@@ -10,7 +10,8 @@ class Routes {
 				'PostListController' => [
 					'limit' => 5,
 					'offset' => 0
-				]
+				],
+				'EventListController' => []
 			]
 		],
 		[

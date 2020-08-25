@@ -25,6 +25,16 @@ use \Blog\Frontend\Web\SiteConfig;
 				<p>Noch keine Neuigkeiten.</p>
 				<?php } ?>
 			</section>
+			<section class="events image" style="--bg: url('https://www.tintencenter.com/blog/wp-content/uploads/2019/02/kalender-678x381.jpg');">
+				<h2>Termine</h2>
+				<?php if($EventListController->events){
+					foreach($EventListController->events as $event){
+						include COMPONENT_PATH . 'event.comp.php';
+					}
+				} else { ?>
+				<p>Keine aktuellen Termine.</p>
+				<?php } ?>
+			</section>
 		</main>
 		<?php include COMPONENT_PATH . 'footer.comp.php'; ?>
 		<?php include COMPONENT_PATH . 'scripts.comp.php'; ?>

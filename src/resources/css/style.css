@@ -177,7 +177,7 @@ main > article.post > header {
 	display: grid;
 	grid-template-columns: inherit;
 	grid-column: grid-start / grid-end;
-	margin: 0 0 2rem;
+	margin: 0;
 	padding: 4rem 0;
 	background: var(--default-gradient-blend);
 }
@@ -217,6 +217,13 @@ article h1 {
 	font-size: 4rem;
 	line-height: 1.2em;
 	margin: 0.2em 0;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	font-family: var(--font-secondary);
+	margin: 1em 0;
 }
 
 picture {
@@ -523,11 +530,7 @@ article.post.preview {
 }
 
 article.post.preview:first-of-type {
-	margin-top: 2rem;
-}
-
-article.post.preview:last-of-type {
-	margin-bottom: 2rem;
+	margin-top: 0.5rem;
 }
 
 article.post.preview a {
@@ -720,6 +723,127 @@ article.post.preview img {
 	transform: translateX(-0.5rem);
 }
 
+
+
+section.events {
+	background-color: #242424;
+	color: #ffffff;
+	margin: 2rem 0 -4rem;
+	padding: 2rem 0 4rem;
+}
+
+section.events.image {
+	--bg: linear-gradient(#ffffff, #ffffff);
+	background: linear-gradient(#000000bb, #00000000), var(--bg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+article.event {
+	--decoration: #1da1f2;
+	display: grid;
+	grid-template-columns: 5rem auto;
+	gap: 0 2rem;
+	width: 100%;
+	margin: 1rem -0.75rem;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--default-shadow);
+	background-color: #ffffff;
+	color: #000000;
+}
+
+article.event .organisation {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+	font-family: var(--font-secondary);
+	margin: 0;
+	color: var(--decoration);
+}
+
+article.event .title {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	font-family: var(--font-primary);
+	font-size: 1.5rem;
+	margin: 0 0 0.25em;
+}
+
+article.event .location {
+	grid-column: 2 / 3;
+	font-family: var(--font-secondary);
+	color: var(--color-text-darker);
+	margin: 0;
+}
+
+article.event .description {
+	grid-column: 2 / 3;
+}
+
+article.event .timestamp {
+	display: grid;
+	grid-column: 1 / 2;
+	grid-row: 1 / 5;
+	margin: 0;
+	padding: 0;
+	height: min-content;
+}
+
+article.event .day {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+	font-family: var(--font-primary);
+	font-size: 3.5rem;
+	line-height: 3.5rem;
+	font-weight: 200;
+}
+
+article.event .month {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+	padding: 0.25rem 0;
+	font-family: var(--font-secondary);
+	color: #e3000f;
+	border-bottom: 0.15rem solid var(--decoration);
+}
+
+article.event .year {
+	display: none;
+}
+
+article.event .time {
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
+	margin: 0.25rem 0 0;
+	font-weight: 600;
+}
+
+article.event[data-organisation=OrtsvereinDudweiler] {
+	--decoration: #e3000f;
+}
+
+article.event[data-organisation=BezirksverbandDudweiler] {
+	--decoration: #b61c3e;
+}
+
+article.event[data-organisation=JusosDudweiler] {
+	--decoration: #8eccbb;
+}
+
+article.event.cancelled {
+	--decoration: #00000088;
+	background-color: #dddddd;
+}
+
+article.event .description .cancelmsg {
+	font-weight: 700;
+	color: #e3000f;
+}
+
+
+
+
 @media (max-width: 86rem) {
 	body {
 		grid-template-columns: [grid-start] 1fr [sym-start] 5rem [large-start] 5rem [content-start]
@@ -758,7 +882,7 @@ article.post.preview img {
 		padding-top: 2rem;
 	}
 
-	article:not(.preview) p {
+	article.post:not(.preview) p {
 		font-size: 1.2rem;
 	}
 
