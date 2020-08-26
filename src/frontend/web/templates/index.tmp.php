@@ -25,7 +25,7 @@ use \Blog\Frontend\Web\SiteConfig;
 				<p>Noch keine Neuigkeiten.</p>
 				<?php } ?>
 			</section>
-			<section class="events image" style="--bg: url('https://www.tintencenter.com/blog/wp-content/uploads/2019/02/kalender-678x381.jpg');">
+			<section class="events image" style="/*--bg: url();*/">
 				<h2>Termine</h2>
 				<?php if($EventListController->events){
 					foreach($EventListController->events as $event){
