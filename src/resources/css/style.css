@@ -279,6 +279,19 @@ ul a:focus {
 	background-position: center 0.5em;
 }
 
+section > a {
+	display: inline-block;
+	font-size: 1.2rem;
+	text-decoration: none;
+	color: #e3000f;
+	transition-duration: 0.25s;
+}
+
+section > a:hover,
+section > a:focus {
+	color: #000000;
+}
+
 body > header {
 	position: relative;
 	grid-template-rows: [solid-start expand-start] 4.5rem [solid-end expand-end];

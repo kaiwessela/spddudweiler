@@ -31,7 +31,7 @@ class Routes {
 		[
 			'path' => '/^a\/.{8}$/',
 			'template' => 'post',
-			'controller' => [
+			'controllers' => [
 				'PostController' => []
 			]
 		]
