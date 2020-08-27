@@ -24,8 +24,9 @@ use \Blog\Frontend\Web\SiteConfig;
 				} else { ?>
 				<p>Noch keine Neuigkeiten.</p>
 				<?php } ?>
+				<a href="<?= Config::SERVER_URL . '/aktuelles' ?>">Weitere Neuigkeiten</a>
 			</section>
-			<section class="events image" style="/*--bg: url();*/">
+			<section class="events image" style="--bg: url('https://demo.spd-dudweiler.de/resources/images/static/Kalender.jpg');">
 				<h2>Termine</h2>
 				<?php if($EventListController->events){
 					foreach($EventListController->events as $event){
