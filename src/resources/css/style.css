@@ -70,57 +70,101 @@
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
 	font-weight: 100;
-	src: url('../fonts/Catamaran/thin.woff2') format('woff2'), local('Catamaran Thin');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/thin.woff2') format('woff2'), local('Josefin Sans Thin');
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
+	font-weight: 100;
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/thin.woff2') format('woff2'), local('Josefin Sans Thin');
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
 	font-weight: 200;
-	src: url('../fonts/Catamaran/extralight.woff2') format('woff2'), local('Catamaran Extralight');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/extralight.woff2') format('woff2'), local('Josefin Sans Extralight');
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
+	font-weight: 200;
+	font-style: italic;
+	src: url('../fonts/Josefin_Sans/extralight-italic.woff2') format('woff2'), local('Josefin Sans Extralight Italic');
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
 	font-weight: 300;
-	src: url('../fonts/Catamaran/light.woff2') format('woff2'), local('Catamaran Light');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/light.woff2') format('woff2'), local('Josefin Sans Light');
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
+	font-weight: 300;
+	font-style: italic;
+	src: url('../fonts/Josefin_Sans/light-italic.woff2') format('woff2'), local('Josefin Sans Light Italic');
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
 	font-weight: 400;
-	src: url('../fonts/Catamaran/regular.woff2') format('woff2'), local('Catamaran Regular'), local('Catamaran');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/regular.woff2') format('woff2'), local('Josefin Sans Regular');
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
+	font-weight: 400;
+	font-style: italic;
+	src: url('../fonts/Josefin_Sans/italic.woff2') format('woff2'), local('Josefin Sans Italic');
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
 	font-weight: 500;
-	src: url('../fonts/Catamaran/medium.woff2') format('woff2'), local('Catamaran Medium');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/medium.woff2') format('woff2'), local('Josefin Sans Medium');
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
+	font-weight: 500;
+	font-style: italic;
+	src: url('../fonts/Josefin_Sans/medium-italic.woff2') format('woff2'), local('Josefin Sans Medium Italic');
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
 	font-weight: 600;
-	src: url('../fonts/Catamaran/semibold.woff2') format('woff2'), local('Catamaran Semibold');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/semibold.woff2') format('woff2'), local('Josefin Sans Semibold');
 }
 
 @font-face {
-	font-family: 'Catamaran';
+	font-family: 'Josefin Sans';
+	font-weight: 600;
+	font-style: italic;
+	src: url('../fonts/Josefin_Sans/semibold-italic.woff2') format('woff2'), local('Josefin Sans Semibold Italic');
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
 	font-weight: 700;
-	src: url('../fonts/Catamaran/bold.woff2') format('woff2'), local('Catamaran Bold');
+	font-style: normal;
+	src: url('../fonts/Josefin_Sans/bold.woff2') format('woff2'), local('Josefin Sans Bold');
 }
 
 @font-face {
-	font-family: 'Catamaran';
-	font-weight: 800;
-	src: url('../fonts/Catamaran/extrabold.woff2') format('woff2'), local('Catamaran Extrabold');
-}
-
-@font-face {
-	font-family: 'Catamaran';
-	font-weight: 900;
-	src: url('../fonts/Catamaran/black.woff2') format('woff2'), local('Catamaran Black');
+	font-family: 'Josefin Sans';
+	font-weight: 700;
+	font-style: italic;
+	src: url('../fonts/Josefin_Sans/bold-italic.woff2') format('woff2'), local('Josefin Sans Bold Italic');
 }
 
 :root {
