@@ -467,6 +467,7 @@ article.post:not(.preview) > p:last-of-type::after {
 
 article.post:not(.preview) > header {
 	padding-bottom: 0;
+	margin-bottom: 2rem;
 }
 
 article.post:not(.preview) > header .overline {
