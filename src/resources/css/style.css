@@ -336,6 +336,10 @@ section > a:focus {
 	color: #000000;
 }
 
+section ul li {
+    margin: 0.5rem 0;
+}
+
 body > header {
 	position: relative;
 	grid-template-rows: [solid-start expand-start] 4.5rem [solid-end expand-end];
