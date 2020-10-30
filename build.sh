@@ -11,4 +11,4 @@ cd ..
 cp -r blog/build/. build
 
 # copy own files
-cp -r src/. build
+cp -r custom/. build

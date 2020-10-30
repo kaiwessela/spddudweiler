@@ -228,9 +228,10 @@ main > article.post > header {
 
 main > *.highlighted.image,
 main > section > header.highlighted.image {
+	min-height: 16rem;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center center;
+	background-position: bottom center;
 	color: #ffffff;
 	text-shadow: 0 0 4rem #000000, 0 0 4rem #000000;
 }
@@ -376,6 +377,7 @@ body > header nav ul a {
 	font-family: var(--font-secondary);
 	font-weight: 500;
 	font-size: 1.2rem;
+	line-height: 1.4em;
 	text-decoration: none;
 	margin: 0 0.5rem;
 	color: #000000;
