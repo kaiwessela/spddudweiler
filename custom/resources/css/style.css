@@ -236,9 +236,10 @@ main > section > header.highlighted.image {
 	text-shadow: 0 0 4rem #000000, 0 0 4rem #000000;
 }
 
+main > *,
 main > section > *,
 main > section > header > * {
-	grid-column: content-start / content-end;
+	grid-column: content-start / content-end !important; /* TODO do not use important */
 }
 
 p,

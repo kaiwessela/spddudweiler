@@ -3,7 +3,7 @@
 		<span class="day"><?= $event->timestamp->day ?></span>
 		<span class="month"><?= $event->timestamp->monthname ?></span>
 		<span class="year"><?= $event->timestamp->year ?></span>
-		<span class="time"><?= $event->timestamp->time ?> Uhr</span>
+		<span class="time"><?= $event->timestamp->time ?></span>
 	</div>
 	<p class="organisation"><?= $event->organisation ?></p>
 	<h4 class="title"><?= $event->title ?></h4>
