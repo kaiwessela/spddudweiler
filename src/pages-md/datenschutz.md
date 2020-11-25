@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# Datenschutzerklärung
+
+>>>>>>> cd4694bc9f2de0d756313ff133984ceb57b9d0eb
 ## Einleitung
 Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer
 personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und

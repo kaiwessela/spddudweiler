@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# Impressum
+
+>>>>>>> cd4694bc9f2de0d756313ff133984ceb57b9d0eb
 ## Kontaktdaten
 SPD Dudweiler  
 Robert-Koch-Straße 18  
