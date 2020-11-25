@@ -238,14 +238,9 @@ main > section > header.highlighted.image {
 
 main > *,
 main > section > *,
-<<<<<<< HEAD
 main > section > header > *,
 main > .highlighted > h1 {
 	grid-column: content-start / content-end;
-=======
-main > section > header > * {
-	grid-column: content-start / content-end !important; /* TODO do not use important */
->>>>>>> cd4694bc9f2de0d756313ff133984ceb57b9d0eb
 }
 
 p,
