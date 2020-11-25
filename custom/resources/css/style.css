@@ -237,7 +237,8 @@ main > section > header.highlighted.image {
 }
 
 main > section > *,
-main > section > header > * {
+main > section > header > *,
+main > .highlighted > h1 {
 	grid-column: content-start / content-end;
 }
 
@@ -268,7 +269,7 @@ h2 {
 	font-size: 2rem;
 	font-weight: 600;
 	font-family: var(--font-secondary);
-	margin: 1em 0;
+	margin: 2em 0 1em;
 }
 
 picture {

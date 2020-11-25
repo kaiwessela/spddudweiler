@@ -12,8 +12,8 @@
 			</section>
 			<section>
 				<h2>Aktuelles</h2>
-				<?php if(!$Post->empty()){
-					foreach($Post->objects as $post){
+				<?php if(!empty($Column->posts)){
+					foreach($Column->posts as $post){
 						include COMPONENT_PATH . 'preview-post.php';
 					}
 				} else { ?>
@@ -23,8 +23,8 @@
 			</section>
 			<section class="events image" style="--bg: url('<?= $server->url ?>/resources/images/static/Kalender.jpg');">
 				<h2>Termine</h2>
-				<?php if(!$Event->empty()){
-					foreach($Event->objects as $event){
+				<?php if(!$EventController->empty()){
+					foreach($Event as $event){
 						include COMPONENT_PATH . 'event.php';
 					}
 				} else { ?>

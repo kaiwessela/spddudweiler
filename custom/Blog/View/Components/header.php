@@ -4,7 +4,7 @@
 			<a href="<?= $server->url ?>/"><li>Startseite</li></a>
 			<a href="<?= $server->url ?>/aktuelles/"><li>Aktuelles</li></a>
 			<a href="<?= $server->url ?>/ueber-uns/"><li>Über uns</li></a>
-			<a href="<?= $server->url ?>/vor-ort/"><li>Wir vor Ort</li></a>
+			<a href="<?= $server->url ?>/wir-vor-ort/"><li>Wir vor Ort</li></a>
 			<a href="<?= $server->url ?>/mitmachen/"><li>Mitmachen</li></a>
 		</ul>
 	</nav>

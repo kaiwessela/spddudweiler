@@ -2,26 +2,28 @@
 	"/": {
 		"template": "index",
 		"controllers": {
-			"PostController": {
-				"action": "list",
+			"ColumnController": {
+				"action": "show",
+				"identifier": "aktuelles",
 				"amount": 5
 			},
 			"EventController": {
 				"action": "list",
-				"amount": 5
+				"amount": 10
 			}
 		}
 	},
 	"aktuelles/#?": {
 		"template": "posts",
 		"controllers": {
-			"PostController": {
-				"action": "list",
-				"amount": 5,
+			"ColumnController": {
+				"action": "show",
+				"identifier": "aktuelles",
+				"amount": 10,
 				"page": "?2",
 				"custom": {
 					"pagination_structure": "default",
-					"pagination_base": "posts"
+					"pagination_base": "aktuelles"
 				}
 			}
 		}
@@ -41,6 +43,64 @@
 			"PostController": {
 				"action": "show",
 				"identifier": "?2"
+			}
+		}
+	},
+	"bezirksrat/neuigkeiten/#?": {
+		"template": "posts",
+		"controllers": {
+			"ColumnController": {
+				"action": "show",
+				"identifier": "bezirksrat",
+				"amount": 10,
+				"page": "?3",
+				"custom": {
+					"pagination_structure": "default",
+					"pagination_base": "bezirksrat/neuigkeiten"
+				}
+			}
+		}
+	},
+	"ueber-uns": {
+		"template": "ueberuns",
+		"controllers": {
+			"PageController": {
+				"action": "show",
+				"identifier": "ueber-uns"
+			},
+			"Vorstand": {
+				"alias": "GroupController",
+				"action": "show",
+				"identifier": "vorstand-ov-dudweiler"
+			},
+			"Jusos": {
+				"alias": "GroupController",
+				"action": "show",
+				"identifier": "jusos-dudweiler"
+			}
+		}
+	},
+	"wir-vor-ort": {
+		"template": "vorort",
+		"controllers": {
+			"PageController": {
+				"action": "show",
+				"identifier": "wir-vor-ort"
+			},
+			"ColumnController": {
+				"action": "show",
+				"identifier": "bezirksrat",
+				"amount": 3
+			},
+			"Stadtrat": {
+				"alias": "GroupController",
+				"action": "show",
+				"identifier": "stadtratsmitglieder"
+			},
+			"Bezirksrat": {
+				"alias": "GroupController",
+				"action": "show",
+				"identifier": "bezirksratsfraktion"
 			}
 		}
 	},

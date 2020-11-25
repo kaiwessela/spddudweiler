@@ -2,17 +2,17 @@
 <html lang="de">
 	<head>
 		<?php include COMPONENT_PATH . 'head.php'; ?>
-		<title>Aktuelles – <?= $site->title ?></title>
+		<title><?= $Column->name ?> – <?= $site->title ?></title>
 	</head>
 	<body>
 		<?php include COMPONENT_PATH . 'header.php'; ?>
 		<main>
 			<section>
 				<header class="highlighted">
-					<h1>Aktuelles</h1>
+					<h1><?= $Column->name ?></h1>
 				</header>
 
-				<?php $pagination = $Post->pagination; ?>
+				<?php $pagination = $ColumnController->pagination; ?>
 				<div>
 					<b>Seite <?= $pagination->current_page ?> von <?= $pagination->total_pages ?></b>
 					– Angezeigt werden Artikel <?= $pagination->first_object ?> bis
@@ -21,14 +21,14 @@
 
 				<?php include COMPONENT_PATH . 'pagination.php'; ?>
 
-				<?php if($Post->empty()){ ?>
+				<?php if(empty($Column->posts)){ ?>
 				<p>Keine Artikel gefunden.</p>
-				<?php } ?>
+			<?php } else { ?>
 
 <?php
-foreach($Post->objects as $post){
+foreach($Column->posts as $post){
 	include COMPONENT_PATH . 'preview-post.php';
-}
+}}
 ?>
 
 			</section>
