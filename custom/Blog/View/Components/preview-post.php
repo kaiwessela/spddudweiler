@@ -16,8 +16,8 @@ if(!empty($post->image)){
 		</p>
 		<p class="author-and-date">
 			Von <?= $post->author ?> &middot;
-			<time datetime="<?= $post->timestamp->iso ?>">
-				<?= $post->timestamp->date ?>
+			<time datetime="<?= $post->timestamp?->format('iso') ?>">
+				<?= $post->timestamp?->format('date') ?>
 			</time>
 		</p>
 	</a>

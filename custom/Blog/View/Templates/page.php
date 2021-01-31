@@ -10,7 +10,7 @@
 			<header class="highlighted">
 				<h1><?= $Page->title ?></h1>
 			</header>
-			<?= $Page->content->parsed ?>
+			<?= $Page->content?->parse() ?>
 		</main>
 		<?php include COMPONENT_PATH . 'footer.php'; ?>
 		<?php include COMPONENT_PATH . 'scripts.php'; ?>

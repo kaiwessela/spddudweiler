@@ -6,11 +6,11 @@
 		<link rel="canonical" href="<?= $server->url ?>/aktuelles/<?= $Post->longid ?>">
 		<meta name="author" content="<?= $Post->author ?>">
 		<meta name="description" content="<?= $Post->teaser ?>">
-		<meta name="date" content="<?= $Post->timestamp->iso ?>">
+		<meta name="date" content="<?= $Post->timestamp?->format('iso') ?>">
 
 		<?php if(!empty($Post->image)){ ?>
 			<meta name="twitter:card" content="summary_large_image">
-			<meta property="og:image" content="<?= $Post->image->source_original ?>">
+			<meta property="og:image" content="<?= $Post->image?->src() ?>">
 		<?php } else { ?>
 			<meta name="twitter:card" content="summary">
 			<meta property="og:image" content="<?= $server->url ?>/resources/images/static/Logo_SPD_Dudweiler_share.png">
@@ -42,8 +42,8 @@
 					<p class="author-and-date">
 						<!-- IDEA use address element? -->
 						Von <?= $Post->author ?>, <wbr>veröffentlicht am
-						<time datetime="<?= $Post->timestamp->iso ?>">
-							<?= $Post->timestamp->date ?>
+						<time datetime="<?= $Post->timestamp?->format('iso') ?>">
+							<?= $Post->timestamp?->format('date') ?>
 						</time>
 					</p>
 				</header>
@@ -62,7 +62,7 @@
 				}
 				?>
 
-				<?= $Post->content->parsed ?>
+				<?= $Post->content?->parse() ?>
 			</article>
 		</main>
 		<?php include COMPONENT_PATH . 'footer.php'; ?>

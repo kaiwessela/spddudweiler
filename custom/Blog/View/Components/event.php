@@ -1,9 +1,9 @@
 <article class="event<?php if($event->cancelled){ ?> cancelled<?php } ?>" data-organisation="<?= $event->organisation ?>">
 	<div class="timestamp">
-		<span class="day"><?= $event->timestamp->day ?></span>
-		<span class="month"><?= $event->timestamp->monthname ?></span>
-		<span class="year"><?= $event->timestamp->year ?></span>
-		<span class="time"><?= $event->timestamp->time ?></span>
+		<span class="day"><?= $event->timestamp?->format('day') ?></span>
+		<span class="month"><?= $event->timestamp?->format('monthname') ?></span>
+		<span class="year"><?= $event->timestamp?->format('year') ?></span>
+		<span class="time"><?= $event->timestamp?->format('time') ?></span>
 	</div>
 	<p class="organisation"><?= $event->organisation ?></p>
 	<h4 class="title"><?= $event->title ?></h4>

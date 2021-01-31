@@ -11,7 +11,7 @@
 				<h1><?= $Page->title ?></h1>
 			</header>
 			<section>
-				<?= $Page->content->parsed ?>
+				<?= $Page->content?->parse() ?>
 			</section>
 			<section>
 				<h2>Neuigkeiten aus dem Bezirksrat</h2>
