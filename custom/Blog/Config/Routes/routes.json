@@ -71,7 +71,8 @@
 			"Vorstand": {
 				"alias": "GroupController",
 				"action": "show",
-				"identifier": "vorstand-ov-dudweiler"
+				"identifier": "vorstand-ov-dudweiler",
+				"amount": 15
 			},
 			"Jusos": {
 				"alias": "GroupController",

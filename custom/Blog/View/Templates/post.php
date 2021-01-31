@@ -3,7 +3,7 @@
 	<head>
 		<?php include COMPONENT_PATH . 'head.php'; ?>
 		<title><?= $Post->headline ?> – <?= $site->title ?></title>
-		<link rel="canonical" href="<?= $server->url ?>/posts/<?= $Post->longid ?>">
+		<link rel="canonical" href="<?= $server->url ?>/aktuelles/<?= $Post->longid ?>">
 		<meta name="author" content="<?= $Post->author ?>">
 		<meta name="description" content="<?= $Post->teaser ?>">
 		<meta name="date" content="<?= $Post->timestamp->iso ?>">
@@ -19,7 +19,7 @@
 		<meta name="twitter:site" content="<?= $site->twitter ?>">
 
 		<meta property="og:type" content="article">
-		<meta property="og:url" content="<?= $server->url ?>/posts/<?= $Post->longid ?>">
+		<meta property="og:url" content="<?= $server->url ?>/aktuelles/<?= $Post->longid ?>">
 		<meta property="og:title" content="<?= $Post->headline ?>">
 		<meta property="og:description" content="<?= $Post->teaser ?>">
 	</head>
