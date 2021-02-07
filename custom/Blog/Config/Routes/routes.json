@@ -105,6 +105,9 @@
 				"alias": "GroupController",
 				"action": "show",
 				"identifier": "bezirksratsfraktion"
+			},
+			"ProposalController": {
+				"action": "list"
 			}
 		}
 	},

@@ -907,6 +907,34 @@ article.event .description .cancelmsg {
 	color: #e3000f;
 }
 
+article.proposal {
+	box-shadow: var(--default-shadow);
+	border-radius: 0.5rem;
+	margin: 1rem -0.75rem;
+}
+
+article.proposal .status {
+	font-family: var(--font-secondary);
+	color: var(--color-text-dark);
+}
+
+article.proposal .status::before {
+	content: '●';
+	color: var(--color-text-dark);
+}
+
+article.proposal .status[data-status=draft]::before {
+	color: #1da1f2;
+}
+
+article.proposal .status[data-status=accepted]::before {
+	color: #00bb00;
+}
+
+article.proposal .status[data-status=rejected]::before {
+	color: #e3000f;
+}
+
 
 
 
