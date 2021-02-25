@@ -61,6 +61,19 @@
 					"pagination_structure": "default",
 					"pagination_base": "bezirksrat/neuigkeiten"
 				}
+			},
+			"ProposalController": {
+				"action": "list",
+				"amount": 5
+			}
+		}
+	},
+	"bezirksrat/antraege/*{9,}": {
+		"template": "proposal",
+		"controllers": {
+			"ProposalController": {
+				"action": "show",
+				"identifier": "?3"
 			}
 		}
 	},

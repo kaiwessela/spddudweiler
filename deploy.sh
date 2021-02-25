@@ -1,27 +1,24 @@
 #! /bin/bash
-
-./build.sh
-
-# save previously uploaded images
 if find /var/www/spd.local/resources/images/dynamic -mindepth 1 | read; then
-	mkdir ./build/temp-images
-    cp -r /var/www/spd.local/resources/images/dynamic/* ./build/temp-images
+    mkdir /var/www/temp
+    cp -r /var/www/spd.local/resources/images/dynamic/. /var/www/temp
     images_exist="true"
 else
-	images_exist="false"
+    images_exist="false"
 fi
 
-# remove old files
-rm -rf /var/www/spd.local/*
+rm -rf build
+mkdir build
+cp -r blog/. build
+cp -r custom/. build
 
-# copy new files
-cp -r ./build/. /var/www/spd.local
+rm -rf /var/www/spd.local
+mkdir /var/www/spd.local
+cp -r build/. /var/www/spd.local
 
-# copy previously uploaded images
 if [ "$images_exist" == "true" ]; then
-	cp -r /var/www/spd.local/temp-images/* /var/www/spd.local/resources/images/dynamic
-	rm -rf /var/www/spd.local/temp-images
+    cp -r /var/www/temp/. /var/www/spd.local/resources/images/dynamic
+    rm -rf /var/www/temp
 fi
 
-# set permissions for image upload folder
 chown -R www-data /var/www/spd.local/resources/images/dynamic

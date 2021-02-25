@@ -15,45 +15,35 @@
 			</section>
 			<section>
 				<h2>Anträge</h2>
-				<?php
-				if(!empty($Proposal)){
-					foreach($Proposal as $prop){
-						?>
+				<?php $Proposal?->each(function($prop){
+					?>
 
-						<article class="proposal">
-							<h3><?= $prop->title ?></h3>
-							<p class="status" data-status="<?= $prop->status ?>">
-								<?= match($prop->status){ 'draft' => 'Entwurf zur Abstimmung', 'accepted' => 'Angenommen', 'rejected' => 'Abgelehnt' } ?>
-							</p>
-							<p><?= $prop->description ?></p>
-						</article>
+					<article class="proposal">
+						<h3><?= $prop->title ?></h3>
+						<p class="status" data-status="<?= $prop->status ?>">
+							<?= match($prop->status){ 'draft' => 'Entwurf zur Abstimmung', 'accepted' => 'Angenommen', 'rejected' => 'Abgelehnt' } ?>
+						</p>
+						<p><?= $prop->description ?></p>
+					</article>
 
-						<?php
-					}
-				}
-				?>
+					<?php
+				}); ?>
 			</section>
 			<section>
 				<h2>Neuigkeiten aus dem Bezirksrat</h2>
-				<?php
-				if(!empty($Column->posts)){
-					foreach($Column->posts as $post){
-						include COMPONENT_PATH . 'preview-post.php';
-					}
-				}
-				?>
+				<?php $Column?->posts?->each(function($post) use ($server){ include COMPONENT_PATH . 'preview-post.php'; }); ?>
 				<a href="<?= $server->url ?>/bezirksrat/neuigkeiten">Weitere Neuigkeiten aus dem Bezirksrat</a>
 			</section>
 			<section>
 				<h2>Unsere Stadtratsmitglieder</h2>
 				<div class="people-grid">
-					<?php foreach($Stadtrat->persons as $person){ include COMPONENT_PATH . 'person-card.php'; } ?>
+					<?php $Stadtrat?->persons?->each(function($person){ include COMPONENT_PATH . 'person-card.php'; }); ?>
 				</div>
 			</section>
 			<section>
 				<h2>Die SPD-Bezirksratsfraktion</h2>
 				<div class="people-grid">
-					<?php foreach($Bezirksrat->persons as $person){ include COMPONENT_PATH . 'person-card.php'; } ?>
+					<?php $Bezirksrat?->persons?->each(function($person){ include COMPONENT_PATH . 'person-card.php'; }); ?>
 				</div>
 			</section>
 		</main>

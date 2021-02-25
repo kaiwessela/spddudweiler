@@ -16,13 +16,13 @@
 			<section>
 				<h2>Unser Vorstand</h2>
 				<div class="people-grid">
-					<?php foreach($Vorstand->persons as $person){ include COMPONENT_PATH . 'person-card.php'; } ?>
+					<?php $Vorstand?->persons?->each(function($person) use ($server){ include COMPONENT_PATH . 'person-card.php'; }); ?>
 				</div>
 			</section>
 			<section>
 				<h2>Unsere Jusos</h2>
 				<div class="people-grid">
-					<?php foreach($Jusos->persons as $person){ include COMPONENT_PATH . 'person-card.php'; } ?>
+					<?php $Jusos?->persons?->each(function($person) use ($server){ include COMPONENT_PATH . 'person-card.php'; }); ?>
 				</div>
 			</section>
 		</main>

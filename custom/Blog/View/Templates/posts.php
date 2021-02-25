@@ -21,15 +21,11 @@
 
 				<?php include COMPONENT_PATH . 'pagination.php'; ?>
 
-				<?php if(empty($Column->posts)){ ?>
-				<p>Keine Artikel gefunden.</p>
-			<?php } else { ?>
-
-<?php
-foreach($Column->posts as $post){
-	include COMPONENT_PATH . 'preview-post.php';
-}}
-?>
+				<?php if($Column->posts->is_empty()){ ?>
+					<p>Keine Artikel gefunden.</p>
+				<?php } else {
+					$Column?->posts?->each(function($post) use ($server){ include COMPONENT_PATH . 'preview-post.php'; });
+				} ?>
 
 			</section>
 		</main>

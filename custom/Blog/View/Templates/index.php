@@ -13,9 +13,7 @@
 			<section>
 				<h2>Aktuelles</h2>
 				<?php if(!empty($Column->posts)){
-					foreach($Column->posts as $post){
-						include COMPONENT_PATH . 'preview-post.php';
-					}
+					$Column?->posts?->each(function($post) use ($server){ include COMPONENT_PATH . 'preview-post.php'; });
 				} else { ?>
 				<p>Noch keine Neuigkeiten.</p>
 				<?php } ?>
@@ -24,9 +22,7 @@
 			<section class="events image" style="--bg: url('<?= $server->url ?>/resources/images/static/Kalender.jpg');">
 				<h2>Termine</h2>
 				<?php if(!$EventController->empty()){
-					foreach($Event as $event){
-						include COMPONENT_PATH . 'event.php';
-					}
+					$Event->each(function($event) use ($server){ include COMPONENT_PATH . 'event.php'; });
 				} else { ?>
 				<p>Keine aktuellen Termine.</p>
 				<?php } ?>
