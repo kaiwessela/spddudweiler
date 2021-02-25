@@ -1,0 +1,13 @@
+section > article {
+	grid-column: content- / -content;
+	margin: 0.5rem -0.5rem;
+	padding: 0.5rem;
+	box-shadow: 0 1rem 5rem #00000044;
+	border-radius: 0.5rem;
+}
+
+section > article > a {
+	display: contents;
+	color: unset;
+	text-decoration: unset;
+}
