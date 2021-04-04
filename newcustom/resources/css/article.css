@@ -1,0 +1,75 @@
+section > article {
+	grid-column: content- / -content;
+	margin: 1rem -0.5rem;
+	padding: 0.5rem;
+	box-shadow: 0 1rem 4rem #00000044;
+	border-radius: 0.5rem;
+}
+
+section > article > a {
+	display: contents;
+	color: unset;
+	text-decoration: unset;
+}
+
+section > article.post .overline {
+	font-family: 'Catamaran';
+	font-weight: 600;
+	margin: 0;
+	color: #e3000f;
+}
+
+section > article.post .headline {
+	font-family: 'Catamaran';
+	font-size: 1.4rem;
+	margin: 0.1em 0;
+}
+
+section > article.post .teaser {
+	margin: 0;
+}
+
+section > article.post .author-and-date {
+	font-size: 0.9rem;
+	margin-top: 0.25rem;
+	color: #666666;
+}
+
+section > article.post img {
+	float: right;
+	max-width: 18rem;
+	max-height: 15rem;
+	border-radius: 0.1rem;
+}
+
+main > article.post > header {
+	padding: 2rem 0;
+}
+
+main > article.post .overline {
+	grid-column: content- / -content;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	margin: 0;
+	color: #e3000f;
+}
+
+main > article.post .headline {
+	font-size: 1.8rem;
+	margin: 0.25em 0;
+}
+
+main > article.post .author-and-date {
+	font-size: 0.9rem;
+	margin: 1em 0;
+	color: #666666;
+}
+
+main > article.post > header figure {
+	grid-column: content- / -content;
+	margin: 0;
+}
+
+main > article.post > header img {
+	width: 100%;
+}

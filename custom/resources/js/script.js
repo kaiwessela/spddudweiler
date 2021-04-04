@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-	document.querySelector('body > header .opener > button').addEventListener('click', function() {
+	document.querySelector('body > header > button.openbtn').addEventListener('click', function() {
 		document.querySelector('body > header').classList.toggle('open');
 	});
 
