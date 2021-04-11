@@ -10,12 +10,14 @@
 			<header>
 				<h1>Fehler 404 – Seite nicht gefunden</h1>
 			</header>
-			<p>Leider ist die Seite, die Sie angefragt haben, nicht vorhanden.</p>
-			<p>
-				Kontaktieren Sie uns bitte, wenn Sie den Verdacht haben, dass ein technischer
-				Fehler vorliegt.
-			</p>
-			<a href="<?= $server->url ?>">Zurück zur Startseite</a>
+			<section>
+				<p>Leider ist die Seite, die Sie angefragt haben, nicht vorhanden.</p>
+				<p>
+					Kontaktieren Sie uns bitte, wenn Sie den Verdacht haben, dass ein technischer
+					Fehler vorliegt.
+				</p>
+				<a class="button" href="<?= $server->url ?>">Zurück zur Startseite</a>
+			</section>
 		</main>
 		<?php include 'components/footer.php'; ?>
 		<?php include 'components/scripts.php'; ?>

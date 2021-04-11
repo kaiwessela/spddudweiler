@@ -3,180 +3,152 @@
 	<head>
 		<?php include 'components/head.php'; ?>
 		<title><?= $Motion->title ?> – <?= $site->title ?></title>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 	</head>
 	<body>
 		<?php include 'components/header.php'; ?>
 		<main>
-			<header class="highlighted">
-				<p>Antrag an den Bezirksrat zum Thema:</p>
-				<h1><?= $Motion->title ?></h1>
-				<p>
-					Sitzung am
-					<time datetime="<?= $Motion->timestamp?->format('iso') ?>">
-						<?= $Motion->timestamp?->format('date') ?>
-					</time>
-				</p>
-				<p class="status" data-status="<?= $Motion->status ?>">
-					<?= match($Motion->status){ 'draft' => 'Entwurf zur Abstimmung', 'accepted' => 'Angenommen', 'rejected' => 'Abgelehnt' } ?>
-				</p>
-			</header>
-			<section>
-				<h2>Beschreibung</h2>
-				<?= $Motion->description?->parse() ?>
-			</section>
-			<section>
-				<h2>Abstimmungsergebnis</h2>
-				<h3>Gesamt</h3>
-				<canvas id="result-general" height="400" width="400"></canvas>
-				<h3>Nach Fraktionen</h3>
-				<canvas id="result-fractions" height="400" width="400"></canvas>
-			</section>
-			<?php
-				$data_general = [
-					'yes' => 0,
-					'no' => 0,
-					'neutral' => 0
-				];
+			<article class="motion">
+				<header>
+					<p class="opener">Antrag der SPD-Fraktion an den Bezirksrat</p>
+					<h1 class="title"><?= $Motion->title ?></h1>
+					<p class="status" data-status="<?= $Motion->status ?>">
+						<?= match($Motion->status){
+							'draft' => 'Entwurf zur Abstimmung',
+							'accepted' => 'Angenommen',
+							'rejected' => 'Abgelehnt'
+						} ?>
+						· Bezirksratssitzung am
+						<time datetime="<?= $Motion->timestamp?->iso() ?>">
+							<?= $Motion->timestamp?->format('date') ?>
+						</time>
+					</p>
+				</header>
+				<section>
+					<h2>Beschreibung</h2>
+					<?= $Motion->description?->parse() ?>
 
-				foreach($Motion->votes as $vote){
-					if($vote['vote'] === 'yes'){
-						$data_general['yes'] = $data_general['yes'] + $vote['amount'];
-					} else if($vote['vote'] === 'no'){
-						$data_general['no'] = $data_general['no'] + $vote['amount'];
-					} else {
-						$data_general['neutral'] = $data_general['neutral'] + $vote['amount'];
-					}
-				}
+					<?php if(!empty($Motion->document)){ ?>
+					<a class="file" href="<?= $Motion->document->src() ?>">
+						<h3 class="title"><?= $Motion->document->title ?></h3>
+						<p class="download">Download der PDF-Datei</p>
+					</a>
+					<?php } ?>
+				</section>
 
-				$labels_fractions = [];
-				$yes = [];
-				$no = [];
-				$neutral = [];
-				$data_fractions = [];
+				<?php if(!empty($Motion->votes)){ ?>
+				<section>
+					<h2>Abstimmungsergebnis</h2>
+					<div class="result">
+						<div>
+							<h3 class="title">Gesamt</h3>
+							<canvas id="result-general" height="300" width="500"></canvas>
+						</div>
+						<div>
+							<h3 class="title">Nach Fraktionen</h3>
+							<canvas id="result-fractions" height="300" width="500"></canvas>
+						</div>
+					</div>
+				</section>
+				<?php } ?>
 
-				foreach($Motion->votes as $vote){
-					if(!in_array($vote['party'], $labels_fractions)){
-						$labels_fractions[] = $vote['party'];
-						$yes[$vote['party']] = 0;
-						$no[$vote['party']] = 0;
-						$neutral[$vote['party']] = 0;
-						$data_fractions[$vote['party']][0] = 0;
-						$data_fractions[$vote['party']][1] = 0;
-						$data_fractions[$vote['party']][2] = 0;
-					}
-
-					if($vote['vote'] === 'yes'){
-						$yes[$vote['party']] = $vote['amount'];
-						$data_fractions[$vote['party']][0] = $vote['amount'];
-					} else if($vote['vote'] === 'no'){
-						$no[$vote['party']] = $vote['amount'];
-						$data_fractions[$vote['party']][1] = $vote['amount'];
-					} else {
-						$neutral[$vote['party']] = $vote['amount'];
-						$data_fractions[$vote['party']][2] = $vote['amount'];
-					}
-				}
-			?>
-			<script>
-				var general = new Chart('result-general', {
-					type: 'doughnut',
-					data: {
-						labels: ['Ja', 'Nein', 'Enthaltung'],
-						datasets: [{
-							label: 'Anzahl an Stimmen',
-							data: [<?= implode(', ', $data_general) ?>],
-							backgroundColor: ['#54e84a', '#c42a25', '#cccccc']
-						}]
-					},
-					options: {
-						responsive: false,
-						circumference: Math.PI,
-						rotation: -1 * Math.PI
-					}
-				});
-			</script>
-			<script>
-				var fractions = new Chart('result-fractions', {
-					type: 'horizontalBar',
-					data: {
-						labels: ['Ja', 'Nein', 'Enthaltung'],
-						datasets: [
-						<?php foreach($data_fractions as $name => $fracd){ ?>
-							{
-								label: '<?= $name ?>',
-								data: [<?= implode(', ', $fracd) ?>],
-								backgroundColor: '<?= match($name){
-									'SPD' => '#e3000f44',
-									'CDU' => '#00000044',
-									'Die Linke' => '#be307544',
-									'B90/Die Grünen' => '#19a32944',
-									'FDP' => '#ffff0044'
-								} ?>',
-								borderColor: '<?= match($name){
-									'SPD' => '#e3000f',
-									'CDU' => '#000000',
-									'Die Linke' => '#be3075',
-									'B90/Die Grünen' => '#19a329',
-									'FDP' => '#ffff00'
-								} ?>',
-								borderWidth: 2,
-								borderSkipped: false
-							},
-						<?php } ?>
-						]
-					},
-					options: {
-						responsive: false,
-						scales: {
-							xAxes: [{ stacked: true }],
-							yAxes: [{ stacked: true }]
-						}
-					}
-				});
-
-
-				/*var fractions = new Chart('result-fractions', {
-					type: 'bar',
-					data: {
-						labels: ["<?= implode('", "', $labels_fractions) ?>"],
-						datasets: [
-							{
-								label: 'Ja',
-								data: [<?= implode(', ', $yes) ?>],
-								barPercentage: 0.5,
-								borderWidth: 2,
-								borderSkipped: '',
-								borderColor: '#54e84a'
-							},
-							{
-								label: 'Nein',
-								data: [<?= implode(', ', $no) ?>],
-								barPercentage: 0.5,
-								borderWidth: 2,
-								borderSkipped: '',
-								borderColor: '#c42a25'
-							},
-							{
-								label: 'Enthaltung',
-								data: [<?= implode(', ', $neutral) ?>],
-								barPercentage: 0.5,
-								borderWidth: 2,
-								borderSkipped: '',
-								borderColor: '#cccccc'
-							}
-						]
-					},
-					options: {
-						responsive: false,
-						scales: {
-							xAxes: [{ stacked: true }],
-							yAxes: [{ stacked: true }]
-						}
-					}
-				});*/
-			</script>
+			</article>
 		</main>
+
+<?php
+if(!empty($Motion->votes)){
+	$general = [
+		'yes' => 0,
+		'abstention' => 0,
+		'no' => 0
+	];
+
+	$fractions = [
+		'CDU' 				=> [	0,	0,	0	],
+		'SPD'				=> [	0,	0,	0	],
+		'Die Linke'			=> [	0,	0,	0	],
+		'B90/Die Grünen'	=> [	0,	0,	0	],
+		'FDP'				=> [	0,	0,	0	]
+	];
+
+	foreach($Motion->votes as $v){
+		$vote = $v['vote']; # yes | no | abstention
+		$general[$vote] += $v['amount'];
+
+		$number = match($vote){ 'yes' => 0, 'no' => 1, 'abstention' => 2 };
+		$fractions[$v['party']][$number] += $v['amount'];
+	}
+
+		?>
+		<script src="<?= $server->url ?>/resources/js/chart.js"></script>
+		<script>
+			Chart.defaults.font.size = 16;
+
+			var general = new Chart('result-general', {
+				type: 'doughnut',
+				data: {
+					labels: ['Ja', 'Enthaltung', 'Nein'],
+					datasets: [{
+						label: 'Anzahl an Stimmen',
+						data: [<?= implode(', ', $general) ?>],
+						backgroundColor: ['#4fa64edd', '#ccccccdd', '#d93033dd'],
+						borderColor: ['#4fa64e', '#cccccc', '#d93033']
+					}]
+				},
+				options: {
+					responsive: false,
+					circumference: 180,
+					rotation: -90
+				}
+			});
+
+			var fractions = new Chart('result-fractions', {
+				type: 'bar',
+				data: {
+					labels: ['Ja', 'Nein', 'Enthaltung'],
+					datasets: [
+					<?php foreach($fractions as $name => $data){ ?>
+						{
+							label: '<?= $name ?>',
+							data: [<?= implode(', ', $data) ?>],
+							backgroundColor: '<?= match($name){
+								'SPD' => '#e3000faa',
+								'CDU' => '#000000aa',
+								'Die Linke' => '#be3075aa',
+								'B90/Die Grünen' => '#19a329aa',
+								'FDP' => '#ffff00aa'
+							} ?>',
+							borderColor: '<?= match($name){
+								'SPD' => '#e3000f',
+								'CDU' => '#000000',
+								'Die Linke' => '#be3075',
+								'B90/Die Grünen' => '#19a329',
+								'FDP' => '#ffff00'
+							} ?>',
+							borderWidth: 2,
+							borderSkipped: false
+						},
+					<?php } ?>
+					]
+				},
+				options: {
+					responsive: false,
+					scales: {
+						x: {
+							stacked: true
+						},
+						y: {
+							stacked: true
+						}
+					},
+					indexAxis: 'y',
+				}
+			});
+		</script>
+
+		<?php
+}
+?>
+
 		<?php include 'components/footer.php'; ?>
 		<?php include 'components/scripts.php'; ?>
 	</body>

@@ -1,31 +1,65 @@
 <div class="pagination">
 	<?php
-	foreach($p->items as $page){
-		if(!$page->is_first() && !$page->is_last()
-			&& ($page->distance_to_current() > 3 && $page->distance_to_current() != 10)){
 
-			continue;
-		}
+/*
+prev    first … #(-10) … # # # cur # # # … #(+10) … last    next
+*/
 
-		if($page->is_first()){
-			$title = 'Erste Seite';
-			$class = 'first-last';
-		} else if($page->is_last()){
-			$title = 'Letzte Seite';
-			$class = 'first-last';
-		} else if($page->is_current()){
-			$title = 'Aktuelle Seite';
+	if($p->page_exists($p->current_page - 1)){
+		$item = $p->items[$p->current_page - 1];
+
+		?><a href="<?= $item->href() ?>" class="item prev" title="Eine Seite zurück">Zurück</a><?php
+	} else {
+		?><div class="item blind prev"></div><?php
+	}
+
+	?><div><?php
+
+	if(!$p->items[$p->first_page()]->is_current()){
+		$item = $p->items[$p->first_page()];
+
+		?><a href="<?= $item->href() ?>" class="item first" title="Erste Seite">Erste</a><?php
+	} else {
+		?><div class="item blind first"></div><?php
+	}
+
+	foreach([-10, -3, -2, -1, 0, 1, 2, 3, 10] as $l){
+		if(abs($l) == 10){
+			$class = 'bigjump';
+		} else if(abs($l) == 0){
 			$class = 'current';
 		} else {
-			$title = $page->number;
-			$class = 'current';
+			$class = '';
 		}
 
-		?>
-		<a href="<?= $page->href() ?>" class="pagination-item <?= $class ?>" title="<?= $title ?>">
-			<?= $page->number ?>
-		</a>
-		<?php
+		if($p->page_exists($p->current_page + $l)){
+			$item = $p->items[$p->current_page + $l];
+
+			?><a href="<?= $item->href() ?>" class="item <?= $class ?>" title="Seite <?= $item->number ?>"><?= $item->number ?></a><?php
+		} else {
+			?><div class="item blind <?= $class ?>"></div><?php
+		}
 	}
+
+	if(!$p->items[$p->last_page()]->is_current()){
+		$item = $p->items[$p->last_page()];
+
+		?><a href="<?= $item->href() ?>" class="item last" title="Letzte Seite">Letzte</a><?php
+	} else {
+		?><div class="item blind last"></div><?php
+	}
+
+	?></div><?php
+
+	if($p->page_exists($p->current_page + 1)){
+		$item = $p->items[$p->current_page + 1];
+
+		?><a href="<?= $item->href() ?>" class="item next" title="Eine Seite weiter">Weiter</a><?php
+	} else {
+		?><div class="item blind next"></div><?php
+	}
+
+
+
 	?>
 </div>

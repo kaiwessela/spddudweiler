@@ -16,7 +16,7 @@ cp -r blog/Blog/. build/Blog
 cp -r blog/media/. build/media
 cp -r blog/vendor/. build/vendor
 cp -r custom/. build
-cp -r oldcustom/. build
+cp -r newcustom/. build
 
 rm -rf /var/www/spd.local
 mkdir /var/www/spd.local

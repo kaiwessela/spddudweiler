@@ -6,8 +6,8 @@
 	</head>
 	<body>
 		<?php include 'components/header.php'; ?>
-		<main>
-			<header style="min-height: 30vh; background-image: url('<?= $server->url ?>/resources/images/Dudweiler-von-oben.jpg');">
+		<main class="feature">
+			<header class="image" style="--image: url('<?= $server->url ?>/resources/images/Dudweiler-von-oben.jpg');">
 				<h1>Willkommen bei der SPD Dudweiler</h1>
 			</header>
 			<section>
@@ -17,7 +17,7 @@
 				} else { ?>
 				<p>Noch keine Neuigkeiten.</p>
 				<?php } ?>
-				<div><a href="<?= $server->url . '/aktuelles' ?>">Weitere Neuigkeiten</a></div>
+				<a class="button" href="<?= $server->url . '/aktuelles' ?>">Weitere Neuigkeiten</a>
 			</section>
 			<section class="events image" style="--bg: url('<?= $server->url ?>/resources/images/Kalender.jpg');">
 				<h2>Termine</h2>

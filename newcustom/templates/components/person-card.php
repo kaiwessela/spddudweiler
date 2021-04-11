@@ -1,24 +1,22 @@
-<article class="person static">
-	<div>
-		<picture>
-		<?php if($person->image){ ?>
+<article class="person-card">
+	<figure>
+		<?php if(!empty($person->image)){ ?>
 
-		<img
-			src="<?= $person->image->src() ?>"
+		<img src="<?= $person->image->src() ?>"
 			srcset="<?= $person->image->srcset() ?>"
-			sizes="18rem"
-			alt="<?= $person->image->description ?>"
-			>
+			sizes="15rem"
+			alt="<?= $person->image->alternative ?>">
 
-		<?php } else { // TODO update sizes ?>
+		<?php } else { ?>
 
-		<img src="<?= $server->url ?>/resources/images/platzhalter.svg">
+		<img src="<?= $server->url ?>/resources/images/platzhalter.svg"
+			sizes="18rem" alt="">
 
 		<?php } ?>
-		</picture>
 
-		<p class="name"><?= $person->name ?></p>
-		<div class="line"></div>
-		<p class="function"><?= $person->role ?></p>
-	</div>
+		<figcaption>
+			<h3 class="name"><?= $person->name ?></h3>
+			<p class="role"><?= $person->role ?></h3>
+		</figcaption>
+	</figure>
 </article>

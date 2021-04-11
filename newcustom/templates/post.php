@@ -46,13 +46,18 @@
 					<?php if($Post->image){ ?>
 					<figure>
 						<img src="<?= $Post->image->src() ?>" srcset="<?= $Post->image->srcset() ?>" sizes="54rem" alt="<?= $Post->image->description ?>">
-						<figcaption><?= $Post->image->copyright ?></figcaption>
+						<figcaption>
+							<?= $Post->image->description ?>
+							<span class="copyright"><?= $Post->image->copyright ?></span>
+						</figcaption>
 					</figure>
 					<?php } ?>
 
 				</header>
 
-				<?= $Post->content?->parse() ?>
+				<section>
+					<?= $Post->content?->parse() ?>
+				</section>
 			</article>
 		</main>
 		<?php include 'components/footer.php'; ?>

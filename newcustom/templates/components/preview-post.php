@@ -1,4 +1,4 @@
-<article class="post">
+<article class="post link">
 	<a href="<?= $server->url ?>/aktuelles/<?= $post->longid ?>">
 
 		<?php if($post->image){ ?>
@@ -9,10 +9,10 @@
 		<h3 class="headline"><?= $post->headline ?></h3>
 		<p class="teaser"><?= $post->teaser ?></p>
 		<div class="author-and-date">
-			Von <?= $post->author ?> &middot;
-			<time datetime="<?= $post->timestamp?->format('iso') ?>">
+			<time datetime="<?= $post->timestamp?->iso() ?>">
 				<?= $post->timestamp?->format('date') ?>
 			</time>
+			· Von <?= $post->author ?>
 		</div>
 	</a>
 </article>
