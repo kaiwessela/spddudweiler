@@ -1,0 +1,112 @@
+/* POST PREVIEW */
+section > article.post .overline {
+	font-family: var(--font-secondary);
+	font-weight: 500;
+	margin: 0;
+	color: var(--spd-red);
+}
+
+section > article .headline {
+	font-family: var(--font-secondary);
+	font-size: 1.4em;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 0.1em 0;
+}
+
+section > article.post .teaser {
+	margin: 0;
+}
+
+section > article.post .author-and-date {
+	margin-top: 0.5em;
+	color: var(--gray);
+}
+
+section > article.post img {
+	max-width: 18em;
+	max-height: 15em;
+	float: right;
+	margin-left: 0.5rem;
+	object-fit: contain;
+	object-position: center center;
+}
+
+
+/* FULL SIZE POST */
+main > article.post .overline {
+	grid-column: content- / -content;
+	font-family: var(--font-secondary);
+	font-size: 1.2em;
+	font-weight: 500;
+	margin: 0;
+	color: var(--spd-red);
+}
+
+main > article.post .headline {
+	font-size: 2em;
+	line-height: 1.4;
+	margin: 0.2em 0;
+}
+
+main > article.post .author-and-date {
+	font-size: 1rem;
+	margin: 0.5em 0;
+	color: var(--light-gray);
+}
+
+main > article.post > header figure {
+	grid-column: content- / -content;
+	margin: 1em -0.5rem -1em;
+	padding: 0.5rem;
+	background-color: var(--background);
+}
+
+main > article.post > header figure figcaption {
+	font-size: 0.9em;
+}
+
+main > article.post > header figure figcaption .copyright {
+	font-style: italic;
+	color: var(--light-gray);
+}
+
+main > article.post > header figure figcaption .copyright::before {
+	content: ' – ';
+	margin: 0 0.25em;
+}
+
+main > article.post > header img {
+	width: 100%;
+}
+
+main > article.post > section:first-of-type {
+	margin-top: 2rem;
+}
+
+main > article.post > section:last-of-type {
+	margin-bottom: 2rem;
+}
+
+main > article.post section p {
+	line-height: 1.5;
+}
+
+main > article.post > section:first-of-type p:first-child::first-letter {
+	font-size: 3.25em;
+	font-weight: 300;
+	margin: 0.11em 0.1em 0 -0.05em;
+	float: left;
+}
+
+main > article.post > section:last-of-type p:last-child::after {
+	content: '';
+	display: inline-block;
+	height: 1em;
+	width: 5em;
+	margin-left: 1rem;
+	vertical-align: middle;
+	background-image: url('../../images/hammer-icon.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}

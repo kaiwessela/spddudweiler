@@ -1,0 +1,589 @@
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-style: normal;
+	src: url('../fonts/Open_Sans/light.woff2') format('woff2'), local('Open Sans Light');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-style: italic;
+	src: url('../fonts/Open_Sans/light-italic.woff2') format('woff2'), local('Open Sans Light Italic');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../fonts/Open_Sans/regular.woff2') format('woff2'), local('Open Sans Regular'), local('Open Sans');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-style: italic;
+	src: url('../fonts/Open_Sans/regular-italic.woff2') format('woff2'),
+		local('Open Sans Regular Italic'), local('Open Sans Italic');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-style: normal;
+	src: url('../fonts/Open_Sans/semibold.woff2') format('woff2'), local('Open Sans Semibold');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-style: italic;
+	src: url('../fonts/Open_Sans/semibold-italic.woff2') format('woff2'), local('Open Sans Semibold Italic');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/Open_Sans/bold.woff2') format('woff2'), local('Open Sans Bold');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 700;
+	font-style: italic;
+	src: url('../fonts/Open_Sans/bold-italic.woff2') format('woff2'), local('Open Sans Bold Italic');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 800;
+	font-style: normal;
+	src: url('../fonts/Open_Sans/extrabold.woff2') format('woff2'), local('Open Sans Extrabold');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 800;
+	font-style: italic;
+	src: url('../fonts/Open_Sans/extrabold-italic.woff2') format('woff2'), local('Open Sans Extrabold Italic');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 100;
+	font-style: normal;
+	src: url('../fonts/Catamaran/thin.woff2') format('woff2'), local('Catamaran Thin');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 200;
+	font-style: normal;
+	src: url('../fonts/Catamaran/extralight.woff2') format('woff2'), local('Catamaran Extralight');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 300;
+	font-style: normal;
+	src: url('../fonts/Catamaran/light.woff2') format('woff2'), local('Catamaran Light');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../fonts/Catamaran/regular.woff2') format('woff2'), local('Catamaran Regular');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 500;
+	font-style: normal;
+	src: url('../fonts/Catamaran/medium.woff2') format('woff2'), local('Catamaran Medium');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-style: normal;
+	src: url('../fonts/Catamaran/semibold.woff2') format('woff2'), local('Catamaran Semibold');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/Catamaran/bold.woff2') format('woff2'), local('Catamaran Bold');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 800;
+	font-style: normal;
+	src: url('../fonts/Catamaran/extrabold.woff2') format('woff2'), local('Catamaran Extrabold');
+}
+
+@font-face {
+	font-family: 'Catamaran';
+	font-weight: 900;
+	font-style: normal;
+	src: url('../fonts/Catamaran/black.woff2') format('woff2'), local('Catamaran Black');
+}
+
+
+:root {
+	--font-primary: 'Open Sans';
+	--font-secondary: 'Catamaran';
+
+	--text: #000000;
+	--background: #ffffff;
+
+	--gray: #444444;
+	--light-gray: #666666;
+	--gray-glassy: #f0f0f0;
+
+	--spd-red: #e3000f;
+	--spd-red-pastel: #fbd7d9;
+	--spd-red-glassy: #e3000f22;
+	--spd-red-gradient: linear-gradient(var(--spd-red), var(--spd-red));
+	--spd-red-gradient-glassy: linear-gradient(var(--spd-red-glassy), var(--spd-red-glassy));
+
+	/* grid */
+	--gc-text: 48rem;
+	--gc-content: 54rem;
+	--gc-large: 64rem;
+	--gc-page: 100rem;
+}
+
+
+html {
+	font-family: var(--font-primary);
+	font-size: 100%;
+}
+
+body {
+	--tx: calc(var(--gc-text) / 2);
+	--cn: calc((var(--gc-content) / 2) - (var(--gc-text) / 2));
+	--lg: calc((var(--gc-large) / 2) - (var(--gc-content) / 2));
+	--pg: calc((var(--gc-page) / 2) - (var(--gc-large) / 2));
+
+	display: grid;
+	grid-template-columns: [grid-] 1fr [page-] var(--pg) [large-] var(--lg) [content-] var(--cn) [text-] var(--tx) [center] var(--tx) [-text] var(--cn) [-content] var(--lg) [-large] var(--pg) [-page] 1fr [-grid];
+	margin: 0;
+	padding: 0;
+	color: var(--text);
+	background: var(--background);
+}
+
+
+/* MAIN */
+body > main {
+	display: grid;
+	grid-column: grid- / -grid;
+	grid-template-columns: inherit;
+	padding-bottom: 4rem;
+}
+
+body > main.feature {
+	background-color: var(--gray-glassy);
+}
+
+
+/* GENERAL GRID LAYOUT */
+section,
+body > main > header,
+body > main > article,
+section > header,
+article > header {
+	display: grid;
+	grid-column: grid- / -grid;
+	grid-template-columns: inherit;
+}
+
+
+/* PAGE HEADER LAYOUT */
+main > header {
+	position: relative;
+	padding: 2rem 0;
+	background-color: var(--gray-glassy);
+}
+
+main.feature > header {
+	background-color: var(--background);
+}
+
+main > header > h1 {
+	grid-column: content- / -content;
+	font-size: 3.25em;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0.5em 0;
+}
+
+/* Image-Containing Header */
+main > header.image {
+	--height: 25vh;
+	--image: none;
+	padding: var(--height) 0 4rem;
+	box-sizing: border-box;
+}
+
+main > header.image::before {
+	content: '';
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-image: var(--image);
+	background-size: cover;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	opacity: 0.9;
+}
+
+main > header.image > h1 {
+	z-index: 1;
+	grid-column: large- / -large;
+	margin: 0;
+	text-align: center;
+	color: #ffffff;
+	text-shadow: 0 0 1rem #000000, 0 0 2rem #000000, 0 0 4rem #000000, 0 0 8rem #000000;
+}
+
+
+/* FEATURE PAGE SECTIONS */
+main > section {
+	padding: 2rem 0;
+}
+
+main.feature {
+	background-color: var(--gray-glassy);
+}
+
+main.feature > section h2 {
+	text-align: center;
+	margin: 0.5em 0 1em;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+main.feature > section h2::before,
+main.feature > section h2::after {
+	content: '';
+	display: inline-block;
+	width: 4.5em;
+	height: 1em;
+	vertical-align: middle;
+	background-image: var(--spd-red-gradient);
+	background-size: 100% 2px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+main.feature > section h2::before {
+	margin-right: 0.5em;
+}
+
+main.feature > section h2::after {
+	margin-left: 0.5em;
+}
+
+main.feature > section a.button {
+	grid-column: content- / -content;
+	margin: 0.5rem -0.5rem;
+}
+
+
+/* ACCESSIBILITY */
+*:focus-visible {
+	outline: 2px dashed var(--black);
+}
+
+
+/* GENERAL ELEMENTS */
+main h1,
+main div,
+main canvas,
+main table,
+main figure,
+main img,
+main svg,
+main picture,
+main audio,
+main video,
+main iframe,
+main map,
+main details {
+	grid-column: content- / -content;
+}
+
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
+main p,
+main a,
+main ul,
+main ol,
+main dl,
+main pre,
+main form {
+	grid-column: text- / -text;
+}
+
+/* Headers */
+h1 {
+	font-family: var(--font-secondary);
+	font-weight: 600;
+	font-size: 2.5em;
+	margin: 1em 0;
+}
+
+h2 {
+	font-family: var(--font-secondary);
+	font-weight: 500;
+	font-size: 2em;
+	margin: 0.5em 0;
+}
+
+h3 {
+	font-family: var(--font-secondary);
+	font-weight: 600;
+	font-size: 1.5em;
+	margin: 0.5em 0;
+}
+
+h4 {
+	font-family: var(--font-primary);
+	font-weight: 600;
+	font-size: 1.25em;
+	margin: 0.5em 0;
+}
+
+h5 {
+	font-family: var(--font-primary);
+	font-weight: 600;
+	font-size: 1em;
+	margin: 0.5em 0;
+}
+
+h6 {
+	font-family: var(--font-primary);
+	font-size: 1em;
+	font-weight: 600;
+	margin: 0.5em 0;
+}
+
+/* Content Text */
+p {
+	margin: 0.5em 0;
+}
+
+section p,
+article p {
+	hyphens: auto;
+}
+
+section p,
+section li,
+section dt,
+section dd {
+	font-size: 1.1rem;
+	line-height: 1.5;
+}
+
+
+/* LINKS */
+/* Text Links */
+p a,
+main div a,
+main ul a,
+main ol a,
+main dl a,
+main figure a,
+main details a,
+main pre a,
+main form a,
+main table a {
+	text-decoration: none;
+	color: var(--spd-red);
+	background-image: var(--spd-red-gradient-glassy);
+	background-size: 100% 2px;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	transition-duration: 0.25s;
+}
+
+p a:hover,
+p a:focus,
+main div a:hover,
+main div a:focus,
+main ul a:hover,
+main ul a:focus,
+main ol a:hover,
+main ol a:focus,
+main dl a:hover,
+main dl a:focus,
+main figure a:hover,
+main figure a:focus,
+main details a:hover,
+main details a:focus,
+main pre a:hover,
+main pre a:focus,
+main form a:hover,
+main form a:focus,
+main table a:hover,
+main table a:focus {
+	background-size: 100% 100%;
+	background-position: center center;
+}
+
+/* Button Links */
+a.button {
+	display: block;
+	font-size: 1.2rem;
+	width: max-content;
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	color: var(--spd-red);
+	text-decoration: none;
+	background-color: var(--spd-red-pastel);
+	background-image: var(--spd-red-gradient);
+	background-size: 0 0.1em;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	transition-duration: 0.25s;
+}
+
+a.button:hover,
+a.button:focus {
+	background-size: 100% 0.1em;
+}
+
+/* File Download Link */
+a.file {
+	display: block;
+	grid-column: text- / -text;
+	width: 30rem;
+	text-decoration: none;
+	color: var(--text);
+	background-color: var(--gray-glassy);
+	border-radius: 0.5rem;
+	margin: 2rem 0 1rem;
+	padding: 0.5rem;
+}
+
+a.file::before {
+	content: '';
+	display: block;
+	float: left;
+	width: 5rem;
+	height: 5rem;
+	background-image: url('../images/pdf-icon.svg');
+	background-size: contain;
+	margin-right: 1rem;
+}
+
+a.file .title {
+	font-family: var(--font-primary);
+	font-weight: 600;
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+a.file .download {
+	margin: 0.25em 0;
+	text-decoration: underline;
+}
+
+a.file:hover .download {
+	text-decoration: none;
+}
+
+/* Pagination Links */
+.pagination {
+	display: grid;
+	grid-template-columns: [prev-] auto [-prev abs-] 1fr [-abs next-] auto [-next];
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.pagination div:not(.item) {
+	grid-column: abs- / -abs;
+	display: flex;
+	justify-content: center;
+}
+
+.pagination .item {
+	display: block;
+	height: 2.5rem;
+	width: 2.5rem;
+	margin: 0 0.25rem;
+	box-sizing: border-box;
+	font-size: 1.2rem;
+	line-height: 2.5rem;
+	text-align: center;
+	text-decoration: none;
+	color: var(--gray);
+	background-color: var(--background);
+	background-image: var(--spd-red-gradient);
+	background-size: 0 2px;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	transition-duration: 0.25s;
+	flex-shrink: 0;
+}
+
+.pagination .item.blind {
+	background-color: transparent;
+}
+
+.pagination .item.prev,
+.pagination .item.next {
+	width: 5rem;
+	margin: 0;
+}
+
+.pagination .item.first,
+.pagination .item.last {
+	width: 5rem;
+}
+
+.pagination .item.bigjump {
+	margin: 0 0.5rem;
+}
+
+.pagination .item.prev {
+	grid-column: prev- / -prev;
+}
+
+.pagination .item.next {
+	grid-column: next- / -next;
+}
+
+.pagination .item.current,
+.pagination .item:not(.blind):hover,
+.pagination .item:not(.blind):focus {
+	color: var(--text);
+	background-color: var(--spd-red-pastel);
+	background-size: 100% 2px;
+}
+
+.pagination .item.current {
+	color: var(--spd-red);
+}
+
+
+
+
+
+/* TODO move */
+
+@media (min-width: 50cm) and (min-resolution: 2dppx) {
+	html {
+		font-size: 14px;
+	}
+}

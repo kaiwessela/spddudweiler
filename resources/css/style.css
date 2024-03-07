@@ -1,0 +1,9 @@
+@import 'general.css';
+@import 'header.css';
+@import 'footer.css';
+@import 'article.css';
+@import 'articles/event.css';
+@import 'articles/motion.css';
+@import 'articles/person.css';
+@import 'articles/post.css';
+@import 'media.css';
