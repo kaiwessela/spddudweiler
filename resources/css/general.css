@@ -134,8 +134,13 @@
 
 
 :root {
-	--font-primary: 'Open Sans';
-	--font-secondary: 'Catamaran';
+	--font-primary: 'Inter';
+	--font-secondary: 'Inter';
+
+	--c-main: #e3000f;
+	--c-accent: #1a7e95;
+	--c-accent-glassy: #d9eef1;
+
 
 	--text: #000000;
 	--background: #ffffff;

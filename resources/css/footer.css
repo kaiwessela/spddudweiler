@@ -5,11 +5,12 @@ body > footer {
 	grid-template-columns: inherit;
 	grid-auto-flow: dense;
 	padding: 2rem 0;
-	background-color: var(--gray-glassy);
+	background-color: var(--c-accent);
+	/* background-color: var(--gray-glassy); */
 }
 
 body > main.feature + footer {
-	background-color: var(--background);
+	/* background-color: var(--background); */
 }
 
 /* Footer Logo */

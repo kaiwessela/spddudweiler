@@ -35,5 +35,5 @@
 			<!-- TODO cc-Hinweise -->
 		</div>
 	</div>
-	<img class="logo" src="<?= $server->url ?>/resources/images/Logo_SPD_Dudweiler_rot.svg" alt="">
+	<img class="logo" src="<?= $server->url ?>/resources/images/SPD_Logo_Rot.svg" alt="">
 </footer>

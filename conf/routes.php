@@ -10,7 +10,8 @@ return [
 				'conditions' => [
 					'columns' => ['column' => ['longid' => 'aktuelles']]
 				],
-				'order' => [['timestamp', '-']]
+				// 'order' => [['timestamp', '-']]
+				'order' => ['timestamp' => '-']
 			],
 			'Events' => [
 				'class' => 'Event',
@@ -19,7 +20,8 @@ return [
 				'conditions' => [
 					'timestamp' => 'today_future'
 				],
-				'order' => [['timestamp', '-']]
+				// 'order' => [['timestamp', '-']]
+				'order' => ['timestamp' => '-']
 			]
 		]
 	],
@@ -40,7 +42,8 @@ return [
 				'conditions' => [
 					'columns' => ['column' => ['longid' => 'aktuelles']] 
 				],
-				'order' => [['timestamp', '-']],
+				'order' => ['timestamp' => '-'],
+				// 'order' => [['timestamp', '-']],
 				'pagination_url_scheme' => '/aktuelles/{page}'
 			]
 		]
@@ -83,7 +86,8 @@ return [
 				'conditions' => [
 					'columns' => ['column' => ['longid' => 'bezirksrat']]
 				],
-				'order' => [['timestamp', '-']]
+				'order' => ['timestamp' => '-']
+				// 'order' => [['timestamp', '-']]
 			],
 			'Stadtrat' => [
 				'class' => 'Person',
@@ -99,7 +103,8 @@ return [
 				'class' => 'Motion',
 				'action' => 'list',
 				'amount' => 5,
-				'order' => [['timestamp', '-']]
+				'order' => ['timestamp' => '-']
+				// 'order' => [['timestamp', '-']]
 			]
 		]
 	],
@@ -123,7 +128,8 @@ return [
 				'conditions' => [
 					'columns' => ['column' => ['longid' => 'bezirksrat']]
 				],
-				'order' => [['timestamp', '-']],
+				'order' => ['timestamp' => '-'],
+				// 'order' => [['timestamp', '-']],
 				'pagination_url_scheme' => '/bezirksrat/neuigkeiten/{page}'
 			]
 		]
@@ -147,7 +153,8 @@ return [
 				'action' => 'list',
 				'amount' => 10,
 				'page' => '/3',
-				'order' => [['timestamp', '-']],
+				'order' => ['timestamp' => '-'],
+				// 'order' => [['timestamp', '-']],
 				'pagination_url_scheme' => '/bezirksrat/antraege/{page}'
 			]
 		]
@@ -178,7 +185,7 @@ return [
 				'conditions' => ['groups' => ['group' => ['longid' => 'vorstand-ov-dudweiler']]],
 				// 'identifier' => 'vorstand-ov-dudweiler',
 				// 'identify_by' => 'longid',
-				// 'order' => [['groups.number', '+']]
+				'order' => ['groups.number' => '+']
 			]
 		]
 	],

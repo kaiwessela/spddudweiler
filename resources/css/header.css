@@ -1,19 +1,20 @@
 /* SITE HEADER */
 body > header {
-	--height: 4.5rem;
+	--height: 6.5rem;
 	display: grid;
 	grid-column: grid- / -grid;
 	position: relative;
 
-	--a: calc((var(--gc-page) / 2) - (var(--height) / 2));
-	grid-template-columns: [grid-] 1fr [nav-] var(--a) [-nav logo-] var(--height) [-logo right-] var(--a) [-right] 1fr [-grid];
+	--a: calc(var(--gc-page) - 20rem);
+	grid-template-columns: [grid-] 1fr [logo-] 20rem [-logo] 4rem [nav-] var(--a) [-nav right-] 0 [-right] 1fr [-grid];
 	grid-template-rows: [bar- expand-] var(--height) [-expand -bar];
 	background: var(--spd-red);
 }
 
 /* Header Logo */
 body > header > .logo {
-	height: var(--height);
+	margin: 1rem 0;
+	height: calc(var(--height) - 2rem);
 	grid-column: logo- / -logo;
 	grid-row: bar- / -bar;
 }
@@ -40,7 +41,7 @@ body > header > nav > ul {
 body > header > nav > ul > li a {
 	font-family: var(--font-secondary);
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	margin: 0 0.5rem;
 	color: var(--color);
 	text-decoration: none;
